@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <p> admin</p>
+   <textarea id="message"></textarea>
+   <button id="submit">submit</button>
+
+   <script src="/socket.io/socket.io.js"></script>
+   <script>
+    var socket = io();
+      document.getElementById('submit').addEventListener('click',()=>{
+        console.log("clicked");
+        let txt = document.getElementById('message').value;
+        socket.emit('data',txt);
+      });
+   </script>
+</body>
+</html>
